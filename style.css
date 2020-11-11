@@ -1,0 +1,423 @@
+.mb-messengers {
+  position: fixed;
+  bottom: 22px;
+  font-family: Helvetica, Sans-Serif;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #000; }
+
+.mb-messengers-right {
+  right: 26px; }
+
+.mb-messengers-left {
+  left: 26px; }
+
+.mb-messengers * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+.mb-messengers .mb-button {
+  border: none;
+  outline: none;
+  background: none;
+  transition: 0.1s;
+  cursor: pointer;
+  font-size: 1em; 
+  position: relative;
+  z-index: 100; }
+
+.mb-messengers .mb-button:hover {
+  box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.7); }
+
+.mb-messengers .mb-container {
+  display: flex;
+  flex-direction: column; }
+
+.mb-messengers .mb-container-button {
+  position: relative;
+  margin-bottom: 0.5em;
+  transition: 0.3s; }
+
+/* Button small */
+.mb-messengers .mb-button-small.mb-button-main {
+  background-color: #3d677b; }
+
+.mb-messengers .mb-button-small.mb-button-whatsapp {
+  background-color: #00CC66; }
+
+.mb-messengers .mb-button-small.mb-button-telegram {
+  background-color: #2BA2DF; }
+
+.mb-messengers .mb-button-small.mb-button-vk {
+  background-color: #4A76A8; }
+
+.mb-messengers .mb-button-small.mb-button-facebook {
+  background-color: #1877f2; }
+
+.mb-messengers .mb-button-small.mb-button-mail {
+  background-color: #b0afaa; }
+
+.mb-messengers .mb-button-small.mb-button-phone {
+  background-color: #ff7c23; }
+
+.mb-messengers .mb-button-small.mb-button-sms {
+  background-color: #69aabd; }
+
+.mb-messengers .mb-button-small.mb-button-instagram {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+
+.mb-messengers .mb-button-small.mb-button-viber {
+  background-color: #7d519e; }
+
+.mb-messengers .mb-button-small {
+  width: 2.8em;
+  height: 2.8em;
+  border-radius: 1.4em;
+  margin: 0 6px 0 0; }
+
+.mb-messengers .mb-button-small:last-of-type {
+  margin: 0; }
+
+.mb-messengers .mb-button-small i {
+  font-size: 1.5em;
+  color: #fff; }
+
+.mb-messengers .mb-button-small.mb-button-whatsapp i {
+  font-size: 1.8em; }
+
+.mb-messengers .mb-button-small.mb-button-telegram i {
+  margin: 0 0 0 -4px;
+  font-size: 1.7em; }
+
+.mb-messengers .mb-button-small.mb-button-vk i {
+  margin: 1px 0 0 -1px; }
+
+.mb-messengers .mb-button-small.mb-button-mail i {
+  margin: -4px 0 0 0; }
+
+.mb-messengers .mb-button-small.mb-button-sms i {
+  margin: 1px 0 0 1px;
+  font-size: 1.7em; }
+
+.mb-messengers .mb-button-small.mb-button-instagram i {
+  font-size: 2em; }
+
+.mb-messengers .mb-button-small.mb-button-viber i {
+  font-size: 1.9em;
+  margin: 3px 0 0 0px; }
+
+/* Button normal */
+.mb-messengers .mb-container-button.mb-button-main .mb-button {
+  background-color: #3d677b; }
+
+.mb-messengers .mb-container-button.mb-button-whatsapp .mb-button {
+  background-color: #00CC66; }
+
+.mb-messengers .mb-container-button.mb-button-telegram .mb-button {
+  background-color: #2BA2DF; }
+
+.mb-messengers .mb-container-button.mb-button-vk .mb-button {
+  background-color: #4A76A8; }
+
+.mb-messengers .mb-container-button.mb-button-facebook .mb-button {
+  background-color: #1877f2; }
+
+.mb-messengers .mb-container-button.mb-button-mail .mb-button {
+  background-color: #b0afaa; }
+
+.mb-messengers .mb-container-button.mb-button-phone .mb-button {
+  background-color: #ff7c23; }
+
+.mb-messengers .mb-container-button.mb-button-sms .mb-button {
+  background-color: #69aabd; }
+
+.mb-messengers .mb-container-button.mb-button-instagram .mb-button {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+
+.mb-messengers .mb-container-button.mb-button-viber .mb-button {
+  background-color: #7d519e; }
+
+.mb-messengers .mb-container-button {
+  display: none;
+  transition: 0.6s;
+  opacity: 0; }
+
+.mb-messengers .mb-container-button.mb-button-main {
+  display: block;
+  opacity: 1; }
+
+.mb-messengers .mb-button-main-pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: 1px solid #3d677b;
+  border-radius: 50%; 
+  z-index: 1;
+  animation: mb-messengers-pulse infinite 1.5s; }
+
+@keyframes mb-messengers-pulse {
+    50%{-webkit-transform:scale(1,1);transform:scale(1,1);opacity:1}
+    100%{-webkit-transform:scale(2,2);transform:scale(2,2);opacity:0}}
+
+.mb-messengers .mb-container-button .mb-button {
+  width: 3.3em;
+  height: 3.3em;
+  border-radius: 1.65em; }
+
+.mb-messengers .mb-container-button i {
+  font-size: 1.7em;
+  color: #fff; }
+
+.mb-messengers .mb-container-button.mb-button-main i {
+  font-size: 2em; }
+
+.mb-messengers .mb-container-button.mb-button-main i.fa-comment-dots {
+  display: inline-block; }
+
+.mb-messengers .mb-container-button.mb-button-main i.fa-times {
+  display: none; }
+
+.mb-messengers .mb-container-button.mb-button-main .mb-pressed i.fa-comment-dots {
+  display: none; }
+
+.mb-messengers .mb-container-button.mb-button-main .mb-pressed i.fa-times {
+  display: inline-block; }
+
+.mb-messengers .mb-container-button.mb-button-whatsapp i {
+  font-size: 2.2em; }
+
+.mb-messengers .mb-container-button.mb-button-telegram i {
+  margin: 0 0 0 -5px;
+  font-size: 2em; }
+
+.mb-messengers .mb-container-button.mb-button-facebook i {
+  margin: 1px 0 0 -1px;
+  font-size: 1.8em; }
+
+.mb-messengers .mb-container-button.mb-button-vk i {
+  margin: 1px 0 0 -1px; }
+
+.mb-messengers .mb-container-button.mb-button-mail i {
+  margin: -4px 0 0 0; }
+
+.mb-messengers .mb-container-button.mb-button-sms i {
+  font-size: 2em; }
+
+.mb-messengers .mb-container-button.mb-button-instagram i {
+  font-size: 2.4em; }
+
+.mb-messengers .mb-container-button.mb-button-viber i {
+  font-size: 2.2em;
+  margin: 1px 0 0 0; }
+
+/* Popup */
+.mb-messengers .mb-popup {
+  display: none;
+  padding: 1.2em;
+  position: absolute;
+  bottom: 5em;
+  z-index: 100;
+  background-color: #d3c7b1;
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  opacity: 0;
+  transition: 0.3s;
+  box-shadow: 7px 7px 15px 8px rgba(0, 0, 0, 0.17); }
+
+.mb-messengers-right .mb-popup {
+  right: 0; }
+
+.mb-messengers-left .mb-popup {
+  left: 0; }
+
+.mb-messengers .mb-button-close {
+  position: absolute;
+  right: 0.3em;
+  top: 0.3em;
+  font-size: 1em;
+  color: #a3a3a3; }
+
+.mb-messengers .mb-button-close svg {
+  fill: #a3a3a3;
+  width: 15px;
+  height: 15px; }
+
+.mb-messengers .mb-button-close:hover {
+  transform: none; }
+
+.mb-messengers .mb-popup-row-1 {
+  display: flex;
+  margin: 0 0 1em 0; }
+
+.mb-messengers .mb-popup img {
+  width: 3.2em;
+  height: 3.2em;
+  margin: 0 1em 0 0;
+  object-fit: cover;
+  border-radius: 8px; }
+
+.mb-messengers .mb-popup-text {
+  width: 100%;
+  position: relative;
+  z-index: 9;
+  font-size: 0.95em;
+  background-color: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px; }
+
+.mb-messengers .mb-popup-text:after {
+  content: '';
+  width: 1em;
+  height: 1em;
+  position: absolute;
+  left: -0.4em;
+  top: 1em;
+  z-index: 9;
+  background-color: #fff;
+  border: 1px solid #e2e2e2;
+  transform: rotate(45deg); }
+
+.mb-messengers .mb-popup-text p {
+  min-height: 4em;
+  min-width: 18em;
+  padding: 0.8em;
+  position: relative;
+  z-index: 10;
+  background-color: #fff;
+  border-radius: 8px;
+  cursor: default; }
+
+.mb-messengers .mb-popup-row-2 {
+  display: flex;
+  justify-content: space-evenly; }
+
+/* Button hint */
+.mb-messengers .mb-button-hint {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  z-index: 9;
+  transform: translateY(-50%);
+  border: 1px solid #3d677b;
+  background-color: #fff;
+  border-radius: 4px;
+  font-size: 1em;
+  transition: 0.2s; }
+
+.mb-messengers-right .mb-button-hint {
+  right: 125%; }
+
+.mb-messengers-left .mb-button-hint {
+  left: 125%; }
+
+.mb-messengers .mb-container-button .mb-button:hover + .mb-button-hint {
+  opacity: 1;
+  display: block; }
+
+.mb-messengers .mb-button-hint:after {
+  content: '';
+  width: 0.6em;
+  height: 0.6em;
+  position: absolute;
+  top: 50%;
+  z-index: 9;
+  background-color: #fff;
+  border: 1px solid #3d677b;
+  transform: translateY(-50%) rotate(45deg); }
+
+.mb-messengers-right .mb-button-hint:after {
+  right: -0.3em; }
+
+.mb-messengers-left .mb-button-hint:after {
+  left: -0.3em; }
+
+.mb-messengers .mb-button-hint p {
+  position: relative;
+  z-index: 10;
+  padding: 0.2em 0.4em;
+  color: #3d677b;
+  background-color: #fff;
+  border-radius: 4px;
+  white-space: nowrap;
+  cursor: default; }
+
+@media all and (max-width: 600px) {
+  .mb-messengers {
+    bottom: 8px; }
+  .mb-messengers-right {
+    right: 20px; }
+  .mb-messengers-left {
+    left: 20px; } }
+
+@media all and (max-width: 520px) {
+  .mb-messengers {
+    bottom: 4px; }
+  .mb-messengers-right {
+    right: 12px; }
+  .mb-messengers-left {
+    left: 12px; }
+  .mb-messengers .mb-container-button {
+    margin-bottom: 0.3em; }
+  .mb-messengers .mb-container-button .mb-button {
+    font-size: 0.9em; }
+  .mb-messengers .mb-container-button.mb-button-main i.fa-comment-dots {
+    margin: 3px 0 0 0; }
+  .mb-messengers .mb-container-button.mb-button-telegram i {
+    margin: 2px 0 0 -5px; }
+  .mb-messengers .mb-container-button.mb-button-whatsapp i {
+    margin: 1px 1px 0 0; }
+  .mb-messengers .mb-container-button.mb-button-viber i {
+    margin: 2px 1px 0 0; }
+  .mb-messengers .mb-container-button.mb-button-instagram i {
+    margin: 1px 1px 0 0; }
+  .mb-messengers .mb-container-button.mb-button-sms i {
+    margin: 2px 0px 0 0; }
+  .mb-messengers .mb-popup {
+    width: 100vw;
+    padding: 0.9em;
+    bottom: 6.5em; }
+  .mb-messengers-right .mb-popup {
+    right: -12px; }
+  .mb-messengers-left .mb-popup {
+    left: -12px; }
+  .mb-messengers .mb-button-close {
+    display: none; }
+  .mb-messengers .mb-popup-row-1 {
+    margin: 0 0 0.9em 0; }
+  .mb-messengers .mb-popup-text p {
+    min-width: 100%;
+    font-size: 1.1em;
+    min-height: 3.5em;
+    padding: 0.7em; }
+  .mb-messengers .mb-popup-text:after {
+    width: 0.8em;
+    height: 0.8em;
+    left: -0.5em;
+    top: 1.4em; } }
+
+@media all and (max-width: 450px) {
+  .mb-messengers .mb-popup-text p {
+    font-size: 1.15em;
+    padding: 0.6em; }
+  .mb-messengers .mb-popup {
+    font-size: 0.9em; }
+  .mb-messengers .mb-button-small.mb-button-viber i {
+    margin: 0; }
+  .mb-messengers .mb-button-small.mb-button-sms i {
+    margin: 0; }
+  .mb-messengers .mb-button-small.mb-button-whatsapp i {
+    margin: 0 1px 0 0; } }
+
+@media all and (max-width: 380px) {
+  .mb-messengers .mb-popup {
+    font-size: 0.8em;
+    padding: 0.8em; }
+  .mb-messengers .mb-button-small {
+    margin-right: 2px; } }
+
