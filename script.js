@@ -173,11 +173,21 @@ class Creator {
             this.createWidget();
             this.createButtons();
         }
-        //
+
+
+        // if(this.settings.show_call_to_action) {
+        //     this.createHintMain();
+        // }
+
 
         if(this.settings.show_call_to_action) {
-            this.createHintMain();
-        }        
+            if (this.getOrder().split(',').length <= 1) {
+                this.createHintButton();
+            } else {
+                this.createHintMain();
+            }
+
+        }
         
         if(this.settings.show_greeting) {
             this.createPopup();
@@ -247,6 +257,23 @@ class Creator {
 
         this.nodeHintMain = container;
     }
+
+    // my code
+
+
+    createHintButton() {
+        let p = document.createElement('p');
+        p.innerHTML = this.settings.call_to_action;
+
+        let container = document.createElement('div');
+        container.classList.add('mb-button-hint');
+        container.append(p);
+
+        // this.nodeContainer.append(container);
+
+        // this.nodeBtns = container;
+    }
+    //
 
     createButtons() {
 
@@ -514,7 +541,14 @@ class MainButton {
         
         this.showHint();
     }
-
+    
+    // my code
+    // set animation
+    
+    setAnimation(animationType) {
+         
+    }
+    
     getNodeBtn() {
         return this.nodeBtn;
     }
@@ -666,31 +700,39 @@ class Widget {
         // my code
         if(creator.getOrder().split(',').length <= 1) {
             this.btns.show();
+            // this.btnMain.style.display = 'none';
+            this.setBtnsActions();
         }
         //
 
+        if (creator.getOrder().split(',').length > 1) {
         if(this.settings.show_greeting) {
             this.popup = new PopupWindow(creator);
             this.showPopup();
             this.popup.getNodeBtnClose().addEventListener('click', this.clickPopupClose);
         }
-        
-        document.addEventListener('click', this.clickDocument);            
-        this.btnMain.getNodeBtn().addEventListener('click', this.clickMain);   
-        
-        let nodeHint = this.btnMain.getNodeHint();
-        if(nodeHint) {
-            this.btnMain.getNodeHint().addEventListener('click', this.clickMain);
-        }
 
-        if(!this.isMobile) {
-            this.btnMain.getNodeBtn().addEventListener('mouseenter', this.mouseoverMain);
-            this.btnMain.getNodeBtn().addEventListener('mouseleave', this.mouseoutMain);
+        // document.addEventListener('click', this.clickDocument);
+        // this.btnMain.getNodeBtn().addEventListener('click', this.clickMain);
 
+            document.addEventListener('click', this.clickDocument);
+            this.btnMain.getNodeBtn().addEventListener('click', this.clickMain);
+
+            let nodeHint = this.btnMain.getNodeHint();
             if(nodeHint) {
-                this.btnMain.getNodeHint().addEventListener('mouseenter', this.mouseoverMain);
-                this.btnMain.getNodeHint().addEventListener('mouseleave', this.mouseoutMain);
+                this.btnMain.getNodeHint().addEventListener('click', this.clickMain);
             }
+
+            if(!this.isMobile) {
+                this.btnMain.getNodeBtn().addEventListener('mouseenter', this.mouseoverMain);
+                this.btnMain.getNodeBtn().addEventListener('mouseleave', this.mouseoutMain);
+
+                if(nodeHint) {
+                    this.btnMain.getNodeHint().addEventListener('mouseenter', this.mouseoverMain);
+                    this.btnMain.getNodeHint().addEventListener('mouseleave', this.mouseoutMain);
+                }
+            }
+
         }
 
         this.setBtnsActions();
@@ -910,6 +952,6 @@ class Widget {
     }
 }
 
-    new Widget({"order_computer":"whatsapp","order_mobile":"whatsapp","show_greeting":false,"company_logo_url":"https://d2j6dbq0eux0bg.cloudfront.net/images/191403/23951996.jpg","greeting_message":"greeting_message","display_time_greeting":6,"button_color":"#129BF4","show_call_to_action":false,"call_to_action":"call_to_action","show_main_button_animation":true,"position":"right","bg_popup":"#fff","user_message":"user_message,","countryCode":"RU","facebook":"","instagram":"","vkontakte":"","ui":{"whatsapp":"+7 (911) 123-45-67","facebook":"","instagram":"","vkontakte":"","telegram":""},"whatsapp":"79111234567","telegram":"","show_widget":true}, Add.isMobile());
+    new Widget({"order_computer":"whatsapp,vkontakte","order_mobile":"whatsapp","show_greeting":true,"company_logo_url":"https://d2j6dbq0eux0bg.cloudfront.net/images/191403/23951996.jpg","greeting_message":"greeting_message","display_time_greeting":6,"button_color":"#129BF4","show_call_to_action":true,"call_to_action":"call_to_action","show_main_button_animation":true,"position":"right","bg_popup":"#fff","user_message":"user_message,","countryCode":"RU","facebook":"","instagram":"","vkontakte":"","ui":{"whatsapp":"+7 (911) 123-45-67","facebook":"","instagram":"","vkontakte":"","telegram":""},"whatsapp":"79111234567","telegram":"","show_widget":true}, Add.isMobile());
 
 })();
