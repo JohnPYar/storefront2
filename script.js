@@ -542,13 +542,6 @@ class MainButton {
         this.showHint();
     }
     
-    // my code
-    // set animation
-    
-    setAnimation(animationType) {
-         
-    }
-    
     getNodeBtn() {
         return this.nodeBtn;
     }
@@ -684,8 +677,28 @@ class Widget {
         this.isMobile = isMobile;
 		
 		this.displayTimePopup = this.settings.display_time_greeting;
-		
+
         this.init();
+    }
+
+    // my code
+    // set animation
+
+    setAnimation(animationType) {
+
+        if (animationType === "default" || !animationType) {
+            return
+        }
+
+        // отключаем анимацию по умолчанию
+        let animDefault = document.querySelector('.mb-button-main-pulse');
+        animDefault.classList.remove('mb-button-main-pulse');
+
+        // задаем тип анимации, указанный в настройках
+        let elem = document.querySelector('.mb-button-main .mb-button');
+        elem.classList.add(animationType);
+        return false;
+
     }
 
     init() { 
@@ -736,6 +749,9 @@ class Widget {
         }
 
         this.setBtnsActions();
+        // my code
+        this.setAnimation(this.settings.animation_type);
+        //
     }
 
     clickMain(e) {
@@ -747,6 +763,8 @@ class Widget {
             this.btnMain.press(); 
             this.hidePopup();           
             this.btns.show();
+            // this.hidePopup();
+            this.setBtnsActions();
         }
     }
 
@@ -952,6 +970,6 @@ class Widget {
     }
 }
 
-    new Widget({"order_computer":"whatsapp,vkontakte","order_mobile":"whatsapp","show_greeting":true,"company_logo_url":"https://d2j6dbq0eux0bg.cloudfront.net/images/191403/23951996.jpg","greeting_message":"greeting_message","display_time_greeting":6,"button_color":"#129BF4","show_call_to_action":true,"call_to_action":"call_to_action","show_main_button_animation":true,"position":"right","bg_popup":"#fff","user_message":"user_message,","countryCode":"RU","facebook":"","instagram":"","vkontakte":"","ui":{"whatsapp":"+7 (911) 123-45-67","facebook":"","instagram":"","vkontakte":"","telegram":""},"whatsapp":"79111234567","telegram":"","show_widget":true}, Add.isMobile());
+    new Widget({"order_computer":"whatsapp,vkontakte","order_mobile":"whatsapp","show_greeting":true,"company_logo_url":"https://d2j6dbq0eux0bg.cloudfront.net/images/191403/23951996.jpg","greeting_message":"greeting_message","display_time_greeting":6,"button_color":"#129BF4","show_call_to_action":true,"call_to_action":"call_to_action","show_main_button_animation":true,"position":"right","bg_popup":"#fff","user_message":"user_message,","countryCode":"RU","facebook":"","instagram":"","vkontakte":"","ui":{"whatsapp":"+7 (911) 123-45-67","facebook":"","instagram":"","vkontakte":"","telegram":""},"whatsapp":"79111234567","telegram":"","show_widget":true, "animation_type":"default"}, Add.isMobile());
 
 })();
