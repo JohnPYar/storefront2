@@ -785,3 +785,7 @@
     border-radius: 45%;
   }
 }
+
+.mb-button-main .mb-button:hover {
+  animation: paused;
+}

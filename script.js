@@ -682,7 +682,7 @@ class Widget {
     }
 
     // set animation
-    setAnimation(animationType) {
+    setAnimation(animationType, animationDelay) {
         if (animationType === "default" || !animationType) {
             return;
         }
@@ -692,6 +692,7 @@ class Widget {
 
         let elem = document.querySelector('.mb-button-main .mb-button');
         elem.classList.add(animationType);
+        elem.style.animationDelay = animationDelay;
         return false;
     }
 
@@ -743,7 +744,7 @@ class Widget {
         }
 
         this.setBtnsActions();
-        this.setAnimation(this.settings.widget_animation_type);
+        this.setAnimation(this.settings.widget_animation_type, this.settings.widget_animation_delay);
     }
 
     clickMain(e) {
@@ -962,7 +963,7 @@ class Widget {
     }
 }
 
-    new Widget({"order_computer":"whatsapp,vkontakte","order_mobile":"whatsapp","show_greeting":true,"company_logo_url":"https://d2j6dbq0eux0bg.cloudfront.net/images/191403/23951996.jpg","greeting_message":"greeting_message","display_time_greeting":6,"button_color":"#129BF4","show_call_to_action":true,"call_to_action":"call_to_action","show_main_button_animation":true,"position":"right","bg_popup":"#fff","user_message":"user_message,","countryCode":"RU","facebook":"","instagram":"","vkontakte":"","ui":{"whatsapp":"+7 (911) 123-45-67","facebook":"","instagram":"","vkontakte":"","telegram":""},"whatsapp":"79111234567","telegram":"","show_widget":true, "widget_animation_type":"jump"}, Add.isMobile());
+    new Widget({"order_computer":"whatsapp,vkontakte","order_mobile":"whatsapp","show_greeting":true,"company_logo_url":"https://d2j6dbq0eux0bg.cloudfront.net/images/191403/23951996.jpg","greeting_message":"greeting_message","display_time_greeting":6,"button_color":"#129BF4","show_call_to_action":true,"call_to_action":"call_to_action","show_main_button_animation":true,"position":"right","bg_popup":"#fff","user_message":"user_message,","countryCode":"RU","facebook":"","instagram":"","vkontakte":"","ui":{"whatsapp":"+7 (911) 123-45-67","facebook":"","instagram":"","vkontakte":"","telegram":""},"whatsapp":"79111234567","telegram":"","show_widget":true, "widget_animation_type":"jump", "widget_animation_delay":"10s"}, Add.isMobile());
 
     //new Widget({"order_computer":"whatsapp","order_mobile":"whatsapp","show_greeting":true,"company_logo_url":"https://d2j6dbq0eux0bg.cloudfront.net/images/191403/23951996.jpg","greeting_message":"greeting_message","display_time_greeting":6,"button_color":"#129BF4","show_call_to_action":true,"call_to_action":"call_to_action","show_main_button_animation":true,"position":"right","bg_popup":"#fff","user_message":"user_message,","countryCode":"RU","facebook":"","instagram":"","vkontakte":"","ui":{"whatsapp":"+7 (911) 123-45-67","facebook":"","instagram":"","vkontakte":"","telegram":""},"whatsapp":"79111234567","telegram":"","show_widget":true}, Add.isMobile());
     //new Widget({"order_computer":"whatsapp","order_mobile":"whatsapp","show_greeting":false,"company_logo_url":"https://d2j6dbq0eux0bg.cloudfront.net/images/191403/23951996.jpg","greeting_message":"greeting_message","display_time_greeting":6,"button_color":"#129BF4","show_call_to_action":false,"call_to_action":"call_to_action","show_main_button_animation":true,"position":"right","bg_popup":"#fff","user_message":"user_message,","countryCode":"RU","facebook":"Trump","instagram":"therock","vkontakte":"11","ui":{"whatsapp":"+7 (911) 123-45-67","facebook":"https://www.facebook.com/Trump/","instagram":"https://instagram.com/therock","vkontakte":"https://vk.com/11","telegram":"bazabazon"},"whatsapp":"79111234567","telegram":"bazabazon","show_widget":true, "widget_animation_type":"jump"}, Add.isMobile());
