@@ -770,12 +770,13 @@ class Widget {
         this.setBtnsActions();
         this.setAnimation(this.settings.widget_animation_type, this.settings.widget_animation_delay);
 
-        setInterval(removeAn, 5000, settings[widget_animation_type]);
+        let param = this.settings.widget_animation_type;
+        setInterval(removeAn, 5000, param);
         function removeAn (animType){
             let elem = document.querySelector(animType);
             elem.classList.remove(animType);
         }
-        setInterval(addAn, 10000, this.settings.widget_animation_type);
+        setInterval(addAn, 10000, param);
         function addAn (animType2){
             let elem = this.document.querySelector('.mb-button-main .mb-button');
             elem.classList.add(animType2);
