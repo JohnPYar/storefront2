@@ -714,8 +714,8 @@ class Widget {
         return false;
     }
 
-    removeAnimation(animationType){
-        let elem = document.querySelector('.jump');
+    removeAnimation (animationType){
+        let elem = document.querySelector(animationType);
         elem.classList.remove(animationType);
     }
 
@@ -768,20 +768,27 @@ class Widget {
         }
 
         this.setBtnsActions();
-
-        // this.setInterval(this.setAnimation(this.settings.widget_animation_type), 10000);
-        // function addAn (animType){
-        //     let elem = this.document.querySelector('.mb-button-main .mb-button');
-        //     elem.classList.add(animType);
-        //
-        // }
-
         this.setAnimation(this.settings.widget_animation_type, this.settings.widget_animation_delay);
+
+        setInterval(removeAn, 5000, settings[widget_animation_type]);
+        function removeAn (animType){
+            let elem = document.querySelector(animType);
+            elem.classList.remove(animType);
+        }
+        setInterval(addAn, 10000, this.settings.widget_animation_type);
+        function addAn (animType2){
+            let elem = this.document.querySelector('.mb-button-main .mb-button');
+            elem.classList.add(animType2);
+        }
+
+
+
+
         // this.setAnimation(this.settings.widget_animation_type, this.settings.widget_animation_delay);
-        setInterval(function (widget_animation_type) {
-            let elem = document.querySelector(widget_animation_type);
-            elem.classList.remove(widget_animation_type);
-        }, 5000)
+        // setInterval(function {
+        //     let elem = document.querySelector(this.widget_animation_type);
+        //     elem.classList.remove(this.widget_animation_type);
+        // }, 5000)
         // setInterval(function (){
         //     let elem = document.querySelector('.mb-button-main .mb-button');
         //     elem.classList.add(this.settings.widget_animation_type);
