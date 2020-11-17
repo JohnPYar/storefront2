@@ -786,6 +786,21 @@
   }
 }
 
+/* служебный класс для задержки в анимации */
+
+.animation-delay {
+  animation: delay 5s;
+}
+
+@keyframes delay {
+0% {
+  animation-play-state: paused;
+  }
+100% {
+  animation-play-state: running;
+  }
+}
+
 .mb-button-main .mb-button:hover {
-  animation: paused;
+  animation: none;
 }

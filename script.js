@@ -691,10 +691,34 @@ class Widget {
         animDefault.classList.remove('mb-button-main-pulse');
 
         let elem = document.querySelector('.mb-button-main .mb-button');
-        elem.classList.add(animationType);
-        elem.style.animationDelay = animationDelay;
+
+        // while (elem.onmouseover){
+            elem.classList.add(animationType);
+            // elem.classList.add('animation-delay')
+            // elem.style.animationDelay = animationDelay;
+
+            // elem.addEventListener('transitionend' , this.pauseAnimation());
+            // elem.style.animationIterationCount = '2';
+            // elem.classList.remove(animationType);
+            // elem.style.animationDelay = '';
+
+            // elem.addEventListener('animationend', function (){
+            //     elem.classList.remove(animationType);
+                // elem.style.animationName = 'none';
+                // elem.style.animationName = animationType;
+                // elem.removeAttribute('animation = "none"');
+                // elem.classList.add(animationType);
+            // });
+        // }
+
         return false;
     }
+
+    removeAnimation(animationType){
+        let elem = document.querySelector('.jump');
+        elem.classList.remove(animationType);
+    }
+
 
     init() { 
         let creator = new Creator(this.settings, this.isMobile);
@@ -744,7 +768,25 @@ class Widget {
         }
 
         this.setBtnsActions();
+
+        // this.setInterval(this.setAnimation(this.settings.widget_animation_type), 10000);
+        // function addAn (animType){
+        //     let elem = this.document.querySelector('.mb-button-main .mb-button');
+        //     elem.classList.add(animType);
+        //
+        // }
+
         this.setAnimation(this.settings.widget_animation_type, this.settings.widget_animation_delay);
+        // this.setAnimation(this.settings.widget_animation_type, this.settings.widget_animation_delay);
+        setInterval(function (widget_animation_type) {
+            let elem = document.querySelector(widget_animation_type);
+            elem.classList.remove(widget_animation_type);
+        }, 5000)
+        // setInterval(function (){
+        //     let elem = document.querySelector('.mb-button-main .mb-button');
+        //     elem.classList.add(this.settings.widget_animation_type);
+        // },10000)
+
     }
 
     clickMain(e) {
@@ -963,7 +1005,7 @@ class Widget {
     }
 }
 
-    new Widget({"order_computer":"whatsapp,vkontakte","order_mobile":"whatsapp","show_greeting":true,"company_logo_url":"https://d2j6dbq0eux0bg.cloudfront.net/images/191403/23951996.jpg","greeting_message":"greeting_message","display_time_greeting":6,"button_color":"#129BF4","show_call_to_action":true,"call_to_action":"call_to_action","show_main_button_animation":true,"position":"right","bg_popup":"#fff","user_message":"user_message,","countryCode":"RU","facebook":"","instagram":"","vkontakte":"","ui":{"whatsapp":"+7 (911) 123-45-67","facebook":"","instagram":"","vkontakte":"","telegram":""},"whatsapp":"79111234567","telegram":"","show_widget":true, "widget_animation_type":"jump", "widget_animation_delay":"10s"}, Add.isMobile());
+    new Widget({"order_computer":"whatsapp,vkontakte","order_mobile":"whatsapp","show_greeting":true,"company_logo_url":"https://d2j6dbq0eux0bg.cloudfront.net/images/191403/23951996.jpg","greeting_message":"greeting_message","display_time_greeting":6,"button_color":"#129BF4","show_call_to_action":true,"call_to_action":"call_to_action","show_main_button_animation":true,"position":"right","bg_popup":"#fff","user_message":"user_message,","countryCode":"RU","facebook":"","instagram":"","vkontakte":"","ui":{"whatsapp":"+7 (911) 123-45-67","facebook":"","instagram":"","vkontakte":"","telegram":""},"whatsapp":"79111234567","telegram":"","show_widget":true, "widget_animation_type":"jump", "widget_animation_delay":"5s"}, Add.isMobile());
 
     //new Widget({"order_computer":"whatsapp","order_mobile":"whatsapp","show_greeting":true,"company_logo_url":"https://d2j6dbq0eux0bg.cloudfront.net/images/191403/23951996.jpg","greeting_message":"greeting_message","display_time_greeting":6,"button_color":"#129BF4","show_call_to_action":true,"call_to_action":"call_to_action","show_main_button_animation":true,"position":"right","bg_popup":"#fff","user_message":"user_message,","countryCode":"RU","facebook":"","instagram":"","vkontakte":"","ui":{"whatsapp":"+7 (911) 123-45-67","facebook":"","instagram":"","vkontakte":"","telegram":""},"whatsapp":"79111234567","telegram":"","show_widget":true}, Add.isMobile());
     //new Widget({"order_computer":"whatsapp","order_mobile":"whatsapp","show_greeting":false,"company_logo_url":"https://d2j6dbq0eux0bg.cloudfront.net/images/191403/23951996.jpg","greeting_message":"greeting_message","display_time_greeting":6,"button_color":"#129BF4","show_call_to_action":false,"call_to_action":"call_to_action","show_main_button_animation":true,"position":"right","bg_popup":"#fff","user_message":"user_message,","countryCode":"RU","facebook":"Trump","instagram":"therock","vkontakte":"11","ui":{"whatsapp":"+7 (911) 123-45-67","facebook":"https://www.facebook.com/Trump/","instagram":"https://instagram.com/therock","vkontakte":"https://vk.com/11","telegram":"bazabazon"},"whatsapp":"79111234567","telegram":"bazabazon","show_widget":true, "widget_animation_type":"jump"}, Add.isMobile());
