@@ -770,13 +770,19 @@ class Widget {
         this.setBtnsActions();
         this.setAnimation(this.settings.widget_animation_type, this.settings.widget_animation_delay);
 
-        let param = this.settings.widget_animation_type;
-        setInterval(removeAn, 5000, param);
-        function removeAn (animType){
-            let elem = document.querySelector(animType);
-            elem.classList.remove(animType);
+        // let param = this.settings.widget_animation_type;
+        const  param = {
+            anim: this.settings.widget_animation_type,
+            c: 1
         }
-        setInterval(addAn, 10000, param);
+
+
+        setInterval(removeAn.bind(param), 5000);
+        function removeAn (){
+            let elem = document.querySelector('.jump');
+            elem.classList.remove('jump');
+        }
+        setInterval(addAn, 10000, 'jump');
         function addAn (animType2){
             let elem = this.document.querySelector('.mb-button-main .mb-button');
             elem.classList.add(animType2);
