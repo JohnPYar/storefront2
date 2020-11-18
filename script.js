@@ -772,20 +772,21 @@ class Widget {
 
         // let param = this.settings.widget_animation_type;
         const  param = {
-            anim: this.settings.widget_animation_type,
-            c: 1
+            anim: this.settings.widget_animation_type
         }
 
 
         setInterval(removeAn.bind(param), 5000);
         function removeAn (){
-            let elem = document.querySelector('.jump');
-            elem.classList.remove('jump');
+            let elem = document.querySelector('.' + this.anim);
+            if (elem) {
+                elem.classList.remove(this.anim);
+            }
         }
-        setInterval(addAn, 10000, 'jump');
-        function addAn (animType2){
-            let elem = this.document.querySelector('.mb-button-main .mb-button');
-            elem.classList.add(animType2);
+        setInterval(addAn.bind(param), 10000);
+        function addAn (){
+            let elem = document.querySelector('.mb-button-main .mb-button');
+            elem.classList.add(this.anim);
         }
 
 
