@@ -692,33 +692,14 @@ class Widget {
 
         let elem = document.querySelector('.mb-button-main .mb-button');
 
-        // while (elem.onmouseover){
-            elem.classList.add(animationType);
-            // elem.classList.add('animation-delay')
-            elem.style.animationDelay = animationDelay;
-            elem.style.animationIterationCount = animationIterationCount;
+        elem.classList.add(animationType);
+        elem.style.animationDelay = animationDelay;
+        elem.style.animationIterationCount = animationIterationCount;
 
-            // elem.addEventListener('transitionend' , this.pauseAnimation());
-            // elem.style.animationIterationCount = '2';
-            // elem.classList.remove(animationType);
-            // elem.style.animationDelay = '';
-
-            // elem.addEventListener('animationend', function (){
-            //     elem.classList.remove(animationType);
-                // elem.style.animationName = 'none';
-                // elem.style.animationName = animationType;
-                // elem.removeAttribute('animation = "none"');
-                // elem.classList.add(animationType);
-            // });
-        // }
 
         return false;
     }
 
-    removeAnimation (animationType){
-        let elem = document.querySelector(animationType);
-        elem.classList.remove(animationType);
-    }
 
 
     init() { 
@@ -771,50 +752,39 @@ class Widget {
         this.setBtnsActions();
         this.setAnimation(this.settings.widget_animation_type, this.settings.widget_animation_delay, this.settings.widget_animation_iteration_count);
 
-        // let param = this.settings.widget_animation_type;
+
+
+
+        // Анимация главной кнопки мессенджеров
+
         const  param = {
             anim: this.settings.widget_animation_type
         }
-
-        // вариант 1
-        setInterval(removeAn.bind(param), 5000);
         function removeAn (){
-            let elem = document.querySelector('.' + this.anim);
+            let elem = document.querySelector('.' + param.anim);
             if (elem) {
-                elem.classList.remove(this.anim);
+                elem.classList.remove(param.anim);
             }
         }
-        setInterval(addAn.bind(param), 10000);
+
         function addAn (){
             let elem = document.querySelector('.mb-button-main .mb-button');
             elem.classList.add(this.anim);
         }
 
-        // вариант 2
-        // let hoverListen = document.querySelector('.mb-pressed');
-        // while (!hoverListen) {
-        //     document.addEventListener('animationend', function () {
-        //         let elem = document.querySelector('.' + this.anim);
-        //         if (elem) {
-        //             elem.classList.remove(this.anim);
-        //         }
-        //         setTimeout(addAn.bind(param), 5000);
-        //     })
-        // }
-
-
-
-
-        // this.setAnimation(this.settings.widget_animation_type, this.settings.widget_animation_delay);
-        // setInterval(function {
-        //     let elem = document.querySelector(this.widget_animation_type);
-        //     elem.classList.remove(this.widget_animation_type);
-        // }, 5000)
-        // setInterval(function (){
-        //     let elem = document.querySelector('.mb-button-main .mb-button');
-        //     elem.classList.add(this.settings.widget_animation_type);
-        // },10000)
-
+        let timerId;
+        document.addEventListener('animationend', function () {
+            let hoverListen = document.querySelector('.mb-pressed');
+            if (hoverListen){
+                clearTimeout(timerId);
+                removeAn();
+                return false;
+            } else {
+                removeAn();
+                timerId = setTimeout(addAn.bind(param), 5000);
+            }
+        })
+        //************
     }
 
     clickMain(e) {

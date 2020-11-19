@@ -801,6 +801,6 @@
   }
 }
 
-.mb-button-main .mb-button:hover {
+.mb-button-main .mb-button:hover, .mb-pressed {
   animation: none;
 }
